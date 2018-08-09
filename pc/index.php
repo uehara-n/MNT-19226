@@ -118,46 +118,37 @@ $label = $field['choices'][ $value ];//選択された表示名（ラベル）�
 			<p class="more"><a href="<?php bloginfo('url'); ?>/event" class="more-btn1">一覧を見る</a>
 			</p>
 		</section>
+
 		<section class="t_news">
 			<h2 class="sec_tit t_news_tit"><img src="<?php echo get_template_directory_uri(); ?>/page_image/top/t_news_tit.png" alt="新着情報" width="205" height="47"></h2>
-			<ul class="list">
-<?php
-     global $post;
-     $my_posts= get_posts(array(
-     'post_type' => array('blog', 'seko', 'workvoice','partswork','event','column','modelhouse'),
-     'numberposts' => 5
-     ));
-     foreach($my_posts as $post):setup_postdata($post);
-     $cate = esc_html(get_post_type_object(get_post_type())->name);
-     $post_type = esc_html( get_post_type_object( get_post_type() )->label );
-?>
 
-				<li><a href="<?php the_permalink(); ?>" class="icon-more"><span class="date"><?php the_time('Y年m月d日'); ?></span>
-					<?php $post_type = esc_html( get_post_type_object( get_post_type() )->label );
-                                        if($cate == ('blog')) {
-                                            echo 'BLOGを更新しました！';
-                                        }elseif($cate == ('seko')){
-                                            echo "施工事例を更新しました！";
-                                        }elseif($cate == ('workvoice')){
-                                            echo 'WORK&VOICEを更新しました!';
-                                        }elseif($cate == ('partswork')){
-                                            echo 'PARTS WORKを更新しました！';
-                                        }elseif($cate == ('column')){
-                                            echo "COLUMNを更新しました!";
-                                        }elseif($cate == ('event')){
-                                            echo "EVENTを更新しました！";
-                                        }elseif($cate == ('modelhouse')){
-                                            echo "モデルハウスページオープン";
-                                        }
-                                        else{
-	                                        echo 'エラー';
-                                        }?></a>
+			<?php $argswn = array(
+				'post_type' => 'whatsnew',
+				'posts_per_page' => 5,
+			); ?>
+			<?php $my_query = new WP_Query( $argswn ); ?>
+
+			<ul class="list">
+
+				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
+
+				<li>
+					<a href="<?php echo post_custom('whatsnew_link'); ?>" class="icon-more">
+						<?php if(post_custom('whatsnew_newicon')){
+						 	echo '<img src="https://www.taniue-reform.jp/wp/wp-content/themes/reform2/page_image/top/new_icon.png" class="w_new" />';
+						} ?>
+						<span class="date"><?php the_time('Y/m/d'); ?></span>
+						<?php the_title(); ?>
+					</a>
 				</li>
-				<?php endforeach; ?>
+
+			<?php endwhile; ?>
 
 			</ul>
+			<?php wp_reset_postdata(); ?>
 		</section>
 	</div>
+
 	<section class="t_modelhouse">
 		<h2 class="sec_tit t_model_tit"><img src="<?php echo get_template_directory_uri(); ?>/page_image/top/t_model_tit.png" alt="モデルハウス" width="241" height="47"></h2>
 		<p class="comment font-gen-md">ご予約ひとつでいつでも見れるリノベーションモデル。<br> リノベーションの経験豊富なスタッフのプランしたお家を
@@ -260,7 +251,7 @@ $label = $field['choices'][ $value ];//選択された表示名（ラベル）�
 	if($image){
 	echo '<img src="' . $image[0] . '" width="'.$image[1].'" height="'.$image[2].'" alt="'.get_the_title().'">';}?></span> <span class="detail_tit font-gen-md">
 	<?php echo mb_strimwidth(get_the_title(), 0, 50, "...", "UTF-8"); ?></span>
-		<?php 
+		<?php
 	$rows = get_field ( 'enquete' );
 	$caption = get_field ( 'answer' );
 	$first_row = $rows[0];
@@ -306,7 +297,7 @@ $label = $field['choices'][ $value ];//選択された表示名（ラベル）�
 						}?></p></a>
 					<div class="detail font-gen-bold">
 						<p class="name"><? if(get_field('name')){ echo get_field('name');}elseif(post_custom('seko_name')){ echo post_custom('seko_city').post_custom('seko_name');}?></p>
-						<p class="text"><? 
+						<p class="text"><?
 							$content = get_field('detail_content');
 							$seko_content = post_custom('seko_content');
 							if($content){ echo mb_strimwidth($content, 0, 40, "...", "UTF-8");}elseif($seko_content){ echo mb_strimwidth($seko_content, 0, 40, "...", "UTF-8");}?><br> （工期：<? if(get_field('detail_duration')){ echo get_field('detail_duration');}elseif(post_custom('seko_duration')){ echo post_custom('seko_duration');}?>）
