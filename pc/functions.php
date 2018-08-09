@@ -249,7 +249,7 @@ function bc_create_customs() {
 	) );
 
 	// 新着情報
-	register_post_type('whatsnew', array(
+	register_post_type('newinfo', array(
 			'labels' => array(
 				'name' => ('新着情報'),
 				'singular_name' => __( '新着情報')
@@ -259,7 +259,7 @@ function bc_create_customs() {
 			'menu_position' => 5,
 	'supports' => array( 'title', 'editor' ),
 	) );
-	register_taxonomy( 'whatsnew_cat', 'whatsnew', array(
+	register_taxonomy( 'newinfo_cat', 'newinfo', array(
 			 'label' => '新着情報カテゴリー',
 		     'hierarchical' => true,
 	) );

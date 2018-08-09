@@ -123,7 +123,7 @@ $label = $field['choices'][ $value ];//選択された表示名（ラベル）�
 			<h2 class="sec_tit t_news_tit"><img src="<?php echo get_template_directory_uri(); ?>/page_image/top/t_news_tit.png" alt="新着情報" width="205" height="47"></h2>
 
 			<?php $argswn = array(
-				'post_type' => 'whatsnew',
+				'post_type' => 'newinfo',
 				'posts_per_page' => 5,
 			); ?>
 			<?php $my_query = new WP_Query( $argswn ); ?>
@@ -133,8 +133,8 @@ $label = $field['choices'][ $value ];//選択された表示名（ラベル）�
 				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
 				<li>
-					<a href="<?php echo post_custom('whatsnew_link'); ?>" class="icon-more">
-						<?php if(post_custom('whatsnew_newicon')){
+					<a href="<?php echo post_custom('newinfo_link'); ?>" class="icon-more">
+						<?php if(post_custom('newinfo_newicon')){
 						 	echo '<img src="https://www.taniue-reform.jp/wp/wp-content/themes/reform2/page_image/top/new_icon.png" class="w_new" />';
 						} ?>
 						<span class="date"><?php the_time('Y/m/d'); ?></span>
