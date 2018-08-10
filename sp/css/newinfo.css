@@ -1,0 +1,59 @@
+@charset "UTF-8";
+/*レスポンシブサイズ設定*/
+
+.newinfo_single .under_page_tit {
+	margin-bottom: 20px;
+}
+
+.newinfo_single .sec_tit {
+	background: #4b4848;
+	color: #FFF;
+	padding: 10px;
+	margin: 0 0 10px;
+	font-size: 14px;
+}
+
+.newinfo_single .sec_tit .icon_new {
+	background: #b8585f;
+	font-size: 10px;
+	padding: 3px 5px;
+	display: inline-block;
+	margin-right: 3px;
+	position: relative;
+	top: -2px;
+}
+
+.newinfo_single .content {
+	font-size: 14px;
+	line-height: 1.6em;
+	padding: 0 0 10px;
+}
+
+.newinfo_single .go_archive {
+	width: 165px;
+	padding: 20px 0;
+	margin: auto;
+}
+
+.newinfo_archive .under_page_tit ,
+.newinfo_archive .list{
+	margin-bottom: 20px;
+}
+
+.newinfo_archive .list li {
+	padding: 10px 50px 10px 10px;
+	border-bottom: solid 1px #898989;
+	position: relative;
+	font-size: 14px;
+	line-height: 1.5em;
+}
+
+.newinfo_archive .list li:after {
+    font-family: 'icomoon' !important;
+    content: "\e900";
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    color: #dcdddd;
+    top: 27%;
+}
