@@ -133,7 +133,7 @@ $label = $field['choices'][ $value ];//選択された表示名（ラベル）�
 				<?php while ( $my_query->have_posts() ) : $my_query->the_post(); ?>
 
 				<li>
-					<a href="<?php echo post_custom('newinfo_link'); ?>" class="icon-more">
+					<a href="<?php echo the_permalink( $post ); ?>" class="icon-more">
 						<?php if(post_custom('newinfo_newicon')){
 						 	echo '<img src="https://www.taniue-reform.jp/wp/wp-content/themes/reform2/page_image/top/new_icon.png" class="w_new" />';
 						} ?>

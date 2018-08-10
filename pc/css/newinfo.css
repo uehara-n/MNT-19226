@@ -1,0 +1,115 @@
+@charset "UTF-8";
+/*レスポンシブサイズ設定*/
+
+.newinfo_single .sec_tit {
+	background: #4b4848;
+	color: #FFF;
+	padding: 10px;
+	margin: 0 0 20px;
+	font-size: 16px;
+}
+
+.newinfo_single .sec_tit .icon_new {
+	background: #b8585f;
+	font-size: 12px;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+	top: -2px;
+}
+
+.newinfo_single .content {
+	font-size: 14px;
+	line-height: 1.6em;
+}
+
+.newinfo_single .content img{
+	max-width: 720px;
+	height:auto;
+}
+
+.newinfo_single .meta {
+	text-align: right;
+	padding: 0 15px;
+}
+
+.newinfo_single .go_archive {
+	width: 165px;
+	padding: 20px 0;
+	margin: auto;
+}
+
+.column_archive .section {
+	margin: 0 0 20px;
+}
+
+.column_archive .sec_tit {
+	background: #4b4848;
+	padding: 10px;
+	margin: 0 0 20px;
+	font-size: 16px;
+	color: #FFF;
+}
+
+.column_archive .sec_tit a {
+	color: #FFF;
+}
+
+.column_archive .sec_tit .icon_new {
+	background: #b8585f;
+	font-size: 12px;
+	padding: 5px 10px;
+	display: inline-block;
+	margin-right: 10px;
+	position: relative;
+	top: -2px;
+}
+
+.column_archive .list {
+	-js-display: flex;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.column_archive .list li {
+	width: 211px;
+	margin: 0 43px 43px 0;
+}
+
+.column_archive .list li:nth-child(3n) {
+	margin-right: 0;
+}
+
+.column_archive .list li img {
+	max-width: 211px;
+}
+
+
+
+
+.newinfo_archive .list li {
+	width: 100%;
+    border-bottom: solid 1px #898989;
+    position: relative;
+    font-size: 14px;
+}
+
+.newinfo_archive .list li a {
+    display: block;
+    padding: 20px 50px 20px 10px;
+}
+
+.newinfo_archive  .list li .date {
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.newinfo_archive .list li a:after {
+    font-family: 'icomoon' !important;
+    content: "\e900";
+    position: absolute;
+    right: 10px;
+    font-size: 20px;
+    color: #dcdddd;
+}
